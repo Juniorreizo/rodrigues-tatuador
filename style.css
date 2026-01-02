@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Cinzel', serif;
+    overflow-x: hidden;
+}
+
+/* FUNDO GLOBAL */
+.global-bg {
+    position: fixed;
+    inset: 0;
+    background: url('img/tattoo1.jpg') center/cover no-repeat;
+    opacity: 0.08;
+    filter: grayscale(100%);
+    z-index: -2;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* HEADER */
+.header {
+    position: relative;
+    border-radius: 25px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.header-bg {
+    position: absolute;
+    inset: 0;
+    background: url('img/tattoo6.jpg') center/cover no-repeat;
+    filter: grayscale(100%);
+}
+
+.header-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+}
+
+.header-content {
+    position: relative;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.badge {
+    background: #111;
+    padding: 10px 24px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(42px, 8vw, 72px);
+    letter-spacing: 4px;
+}
+
+.subtitle {
+    margin: 20px 0;
+    opacity: 0.8;
+}
+
+.buttons button {
+    background: orange;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* TABS */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.tabs button {
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.tabs .active {
+    background: #fff;
+    color: #000;
+}
+
+.tab { display: none; }
+.tab.active { display: block; }
+
+/* ESTILOS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 20px;
+}
+
+.card {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    display: flex;
+    align-items: flex-end;
+    padding: 15px;
+}
+
+.card span {
+    background: rgba(0,0,0,0.7);
+    padding: 6px 12px;
+    border-radius: 12px;
+}
+
+/* PORTFÓLIO */
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+    gap: 15px;
+}
+
+.portfolio img {
+    width: 100%;
+    border-radius: 15px;
+    transition: transform .3s;
+}
+
+.portfolio img:hover {
+    transform: scale(1.05);
+}
+
+/* SOBRE */
+.sobre {
+    text-align: center;
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+/* MODAL */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-box {
+    background: #111;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    animation: zoom .3s ease;
+}
+
+@keyframes zoom {
+    from { transform: scale(.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-box input,
+.modal-box textarea,
+.modal-box button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+}
+
+.modal-box button {
+    background: orange;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close {
+    background: none;
+    border: none;
+    color: orange;
+    font-size: 28px;
+    float: right;
+    cursor: pointer;
+}

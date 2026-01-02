@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Rodrigues Tatuador</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FONTE TATTOO -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- FUNDO GLOBAL COM FOTOS PASSANDO -->
+<div class="global-bg"></div>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <!-- FUNDO DO HEADER -->
+        <div class="header-bg"></div>
+
+        <!-- CONTEÚDO -->
+        <div class="header-content">
+            <span class="badge">⚙️ RODRIGUES TATUADOR ⚙️</span>
+
+            <h1>
+                RODRIGUES<br>
+                TATUADOR
+            </h1>
+
+            <p class="subtitle">Arte eterna na pele</p>
+
+            <div class="buttons">
+                <button onclick="openModal()">Agendar Tattoo</button>
+                
+            </div>
+        </div>
+
+    </header>
+
+    <!-- TABS -->
+    <nav class="tabs">
+        <button class="active" onclick="showTab('estilos', event)">Estilos</button>
+        <button onclick="showTab('portfolio', event)">Portfólio</button>
+        <button onclick="showTab('sobre', event)">Sobre</button>
+    </nav>
+
+    <!-- ESTILOS -->
+    <section id="estilos" class="tab active">
+        <div class="grid">
+            <div class="card" style="background-image:url('img/tattoo1.jpg')"><span>Blackwork</span></div>
+            <div class="card" style="background-image:url('img/tattoo2.jpg')"><span>Fineline</span></div>
+            <div class="card" style="background-image:url('img/tattoo3.jpg')"><span>Old School</span></div>
+            <div class="card" style="background-image:url('img/tattoo4.jpg')"><span>Realismo</span></div>
+        </div>
+    </section>
+
+    <!-- PORTFÓLIO -->
+    <section id="portfolio" class="tab">
+        <div class="portfolio">
+            <div class="item"><img src="img/tattoo1.jpg"></div>
+            <div class="item"><img src="img/tattoo2.jpg"></div>
+            <div class="item"><img src="img/tattoo3.jpg"></div>
+            <div class="item"><img src="img/tattoo4.jpg"></div>
+            <div class="item"><img src="img/tattoo5.jpg"></div>
+            <div class="item"><img src="img/tattoo6.jpg"></div>
+            <div class="item"><img src="img/tattoo7.jpg"></div>
+            <div class="item"><img src="img/tattoo8.jpg"></div>
+            <div class="item"><img src="img/tattoo9.jpg"></div>
+            <div class="item"><img src="img/tattoo10.jpg"></div>
+            <div class="item"><img src="img/tattoo11.jpg"></div>
+            <div class="item"><img src="img/tattoo12.jpg"></div>
+            <div class="item"><img src="img/tattoo13.jpg"></div>
+            <div class="item"><img src="img/tattoo14.jpg"></div>
+            <div class="item"><img src="img/tattoo15.jpg"></div>
+            <div class="item"><img src="img/tattoo16.jpg"></div>
+            <div class="item"><img src="img/tattoo17.jpg"></div>
+            <div class="item"><img src="img/tattoo18.jpg"></div>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="tab">
+        <p class="sobre">
+            Com mais de 10 anos de experiência, transformo histórias em tatuagens
+            únicas, com técnica, identidade e respeito à arte.
+        </p>
+    </section>
+
+</div>
+
+<!-- MODAL -->
+<!-- MODAL AGENDAMENTO -->
+<div id="modal" class="modal">
+    <div class="modal-box">
+        <button class="close" onclick="closeModal()">Agendar Tattoo</button>
+
+        <h2>Agendar Tattoo</h2>
+
+        <form>
+            <input type="text" placeholder="Nome" required>
+            <input type="tel" placeholder="WhatsApp" required>
+            <textarea placeholder="Descreva sua ideia"></textarea>
+            <input type="file" accept="image/*" multiple>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
