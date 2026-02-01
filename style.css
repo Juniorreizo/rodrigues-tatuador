@@ -137,10 +137,10 @@ body {
         url('img/tattoo7.jpg'),
         url('img/tattoo8.jpg'),
         url('img/tattoo9.jpg');
-    background-size: 280px 280px;
+    background-size: 300px 300px;
     background-repeat: repeat;
-    opacity: 0.25;
-    animation: headerSlideRight1 200s linear infinite;
+    opacity: 0.4;
+    animation: headerSlideRight1 150s linear infinite;
     z-index: 1;
 }
 
@@ -162,12 +162,12 @@ body {
         url('img/tattoo16.jpg'),
         url('img/tattoo17.jpg'),
         url('img/tattoo18.jpg');
-    background-size: 260px 260px;
+    background-size: 280px 280px;
     background-repeat: repeat;
-    background-position: 140px 140px;
-    opacity: 0.2;
-    animation: headerSlideLeft 250s linear infinite;
-    z-index: 1;
+    background-position: 150px 150px;
+    opacity: 0.3;
+    animation: headerSlideLeft 180s linear infinite;
+    z-index: 2;
 }
 
 @keyframes headerSlideRight1 {
@@ -198,11 +198,11 @@ body {
     height: 100%;
     background: linear-gradient(
         135deg, 
-        rgba(0, 0, 0, 0.75) 0%,
-        rgba(139, 0, 0, 0.5) 50%,
-        rgba(0, 0, 0, 0.75) 100%
+        rgba(0, 0, 0, 0.6) 0%,
+        rgba(139, 0, 0, 0.4) 50%,
+        rgba(0, 0, 0, 0.6) 100%
     );
-    z-index: 2;
+    z-index: 3;
 }
 
 /* Vinheta nas bordas */
@@ -216,14 +216,14 @@ body {
     background: radial-gradient(
         ellipse at center,
         transparent 30%,
-        rgba(0, 0, 0, 0.6) 100%
+        rgba(0, 0, 0, 0.4) 100%
     );
-    z-index: 2;
+    z-index: 3;
 }
 
 .header-content {
     position: relative;
-    z-index: 3;
+    z-index: 4;
     padding: 60px 20px;
     max-width: 1200px;
     margin: 0 auto;
