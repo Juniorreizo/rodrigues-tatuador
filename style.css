@@ -80,875 +80,6 @@ body {
 
 /* ========== CONTAINER ========== */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    position: relative;
-}
-
-/* ========== HEADER ========== */
-.header {
-    position: relative;
-    text-align: center;
-    padding: 60px 20px;
-    margin-bottom: 30px;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.header-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(0, 0, 0, 0.8)),
-                url('img/tattoo1.jpg') center/cover;
-    z-index: -1;
-    animation: headerSlide 20s ease-in-out infinite;
-}
-
-@keyframes headerSlide {
-    0%, 100% { background-image: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url('img/tattoo1.jpg'); }
-    25% { background-image: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url('img/tattoo5.jpg'); }
-    50% { background-image: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url('img/tattoo10.jpg'); }
-    75% { background-image: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url('img/tattoo15.jpg'); }
-}
-
-.header-content {
-    position: relative;
-    z-index: 1;
-}
-
-.badge {
-    display: inline-block;
-    background: rgba(139, 0, 0, 0.9);
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-size: 12px;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-.header h1 {
-    font-family: 'Anton', sans-serif;
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    letter-spacing: 8px;
-    text-shadow: 0 0 30px rgba(139, 0, 0, 0.8);
-    margin: 20px 0;
-    line-height: 1.1;
-}
-
-.subtitle {
-    font-size: clamp(1rem, 3vw, 1.3rem);
-    opacity: 0.9;
-    margin-bottom: 30px;
-    letter-spacing: 3px;
-}
-
-.buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.buttons button {
-    background: linear-gradient(135deg, #8b0000, #c90000);
-    border: 2px solid rgba(255, 0, 0, 0.3);
-    padding: 18px 45px;
-    color: white;
-    font-size: 17px;
-    font-weight: bold;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 
-        0 8px 25px rgba(139, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    position: relative;
-    overflow: hidden;
-}
-
-.buttons button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-}
-
-.buttons button:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
-.buttons button:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 
-        0 15px 40px rgba(139, 0, 0, 0.6),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 0, 0, 0.6);
-    background: linear-gradient(135deg, #a00000, #ff0000);
-}
-
-.buttons button:active {
-    transform: translateY(-2px) scale(1.02);
-}
-
-/* ========== TABS ========== */
-.tabs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 30px;
-    background: rgba(20, 20, 20, 0.8);
-    padding: 10px;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    overflow-x: auto;
-}
-
-.tabs button {
-    flex: 1;
-    background: transparent;
-    border: 2px solid rgba(139, 0, 0, 0.3);
-    color: #fff;
-    padding: 15px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s;
-    min-width: 120px;
-    white-space: nowrap;
-}
-
-.tabs button:hover {
-    border-color: #8b0000;
-    background: rgba(139, 0, 0, 0.1);
-}
-
-.tabs button.active {
-    background: linear-gradient(135deg, #8b0000, #ff0000);
-    border-color: #ff0000;
-}
-
-/* ========== SECTIONS ========== */
-.tab {
-    display: none;
-    animation: fadeIn 0.5s;
-}
-
-.tab.active {
-    display: block;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ========== GRID ESTILOS ========== */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    position: relative;
-    height: 300px;
-    border-radius: 15px;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    transition: all 0.3s;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.card:hover::before {
-    background: linear-gradient(to top, rgba(139,0,0,0.8), transparent);
-}
-
-.card span {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    z-index: 1;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-}
-
-/* ========== PORTFÓLIO ========== */
-.portfolio {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.portfolio .item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-    aspect-ratio: 1;
-    background: rgba(20, 20, 20, 0.5);
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.portfolio .item:hover {
-    transform: scale(1.05);
-}
-
-.portfolio .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: all 0.3s;
-}
-
-.portfolio .item:hover img {
-    filter: brightness(1.2);
-}
-
-/* ========== SOBRE ========== */
-.sobre-container {
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.sobre-intro {
-    background: linear-gradient(135deg, rgba(139, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
-    padding: 50px;
-    border-radius: 20px;
-    text-align: center;
-    border: 2px solid rgba(139, 0, 0, 0.3);
-    backdrop-filter: blur(15px);
-    margin-bottom: 40px;
-    position: relative;
-    overflow: hidden;
-}
-
-.sobre-intro::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, #8b0000, #ff0000, #8b0000, transparent);
-}
-
-.sobre-intro h2 {
-    font-size: clamp(2rem, 5vw, 2.8rem);
-    background: linear-gradient(135deg, #ff0000, #ff6666);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 25px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
-.sobre-intro p {
-    font-size: clamp(1.1rem, 3vw, 1.4rem);
-    line-height: 2;
-    opacity: 0.95;
-    max-width: 800px;
-    margin: 0 auto;
-    color: #e0e0e0;
-}
-
-/* Divisor decorativo */
-.sobre-divider {
-    text-align: center;
-    margin: 50px 0;
-    position: relative;
-}
-
-.sobre-divider::before,
-.sobre-divider::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 45%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.5), transparent);
-}
-
-.sobre-divider::before {
-    left: 0;
-}
-
-.sobre-divider::after {
-    right: 0;
-}
-
-.sobre-divider span {
-    display: inline-block;
-    background: rgba(20, 20, 20, 0.9);
-    padding: 10px 30px;
-    border-radius: 30px;
-    border: 2px solid rgba(139, 0, 0, 0.4);
-    font-size: 2rem;
-    position: relative;
-}
-
-.sobre-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-bottom: 50px;
-}
-
-.sobre-card {
-    background: linear-gradient(135deg, rgba(20, 20, 20, 0.9), rgba(10, 10, 10, 0.95));
-    padding: 35px;
-    border-radius: 20px;
-    border: 2px solid rgba(139, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
-}
-
-.sobre-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, #8b0000, #ff0000, #8b0000);
-    transform: scaleX(0);
-    transition: transform 0.4s;
-}
-
-.sobre-card:hover::before {
-    transform: scaleX(1);
-}
-
-.sobre-card:hover {
-    border-color: rgba(139, 0, 0, 0.6);
-    transform: translateY(-8px);
-    box-shadow: 
-        0 15px 40px rgba(139, 0, 0, 0.4),
-        0 0 30px rgba(139, 0, 0, 0.1);
-}
-
-.sobre-icon {
-    font-size: 3.5rem;
-    text-align: center;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 10px rgba(139, 0, 0, 0.5));
-    transition: transform 0.3s;
-}
-
-.sobre-card:hover .sobre-icon {
-    transform: scale(1.1) rotate(5deg);
-}
-
-.sobre-card h3 {
-    font-size: 1.6rem;
-    background: linear-gradient(135deg, #ff0000, #ff6666);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 25px;
-    text-align: center;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
-.sobre-card ul {
-    list-style: none;
-}
-
-.sobre-card li {
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(139, 0, 0, 0.15);
-    font-size: 1.05rem;
-    line-height: 1.6;
-    position: relative;
-    padding-left: 30px;
-    color: #d0d0d0;
-    transition: all 0.3s;
-}
-
-.sobre-card li:last-child {
-    border-bottom: none;
-}
-
-.sobre-card li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: #ff0000;
-    font-weight: bold;
-    font-size: 1.2rem;
-    transition: all 0.3s;
-}
-
-.sobre-card:hover li::before {
-    left: 5px;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-}
-
-.sobre-cta {
-    background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(0, 0, 0, 0.9));
-    padding: 60px 40px;
-    border-radius: 20px;
-    text-align: center;
-    border: 2px solid rgba(139, 0, 0, 0.4);
-    position: relative;
-    overflow: hidden;
-}
-
-.sobre-cta::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.1), transparent);
-    transition: left 1s;
-}
-
-.sobre-cta:hover::before {
-    left: 100%;
-}
-
-.sobre-cta h3 {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    background: linear-gradient(135deg, #ff0000, #ff6666);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-    font-weight: 700;
-}
-
-.sobre-cta p {
-    font-size: clamp(1.1rem, 3vw, 1.3rem);
-    margin-bottom: 30px;
-    color: #d0d0d0;
-    line-height: 1.8;
-}
-
-.cta-button {
-    background: linear-gradient(135deg, #8b0000, #c90000);
-    border: 2px solid rgba(255, 0, 0, 0.3);
-    padding: 20px 55px;
-    color: white;
-    font-size: 19px;
-    font-weight: bold;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 
-        0 10px 30px rgba(139, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-}
-
-.cta-button:hover::before {
-    width: 400px;
-    height: 400px;
-}
-
-.cta-button:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 
-        0 15px 50px rgba(139, 0, 0, 0.7),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 0, 0, 0.6);
-    background: linear-gradient(135deg, #a00000, #ff0000);
-}
-
-.cta-button:active {
-    transform: translateY(-2px) scale(1.02);
-}
-
-/* ========== MODAL ========== */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    backdrop-filter: blur(10px);
-}
-
-.modal.active {
-    display: flex;
-}
-
-.modal-box {
-    background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
-    padding: 40px;
-    border-radius: 20px;
-    max-width: 500px;
-    width: 100%;
-    position: relative;
-    border: 2px solid rgba(139, 0, 0, 0.3);
-    box-shadow: 0 10px 50px rgba(139, 0, 0, 0.5);
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-.modal-box .close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 28px;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s;
-}
-
-.modal-box .close::before {
-    content: '×';
-}
-
-.modal-box .close:hover {
-    color: #ff0000;
-    transform: rotate(90deg);
-}
-
-.modal-box h2 {
-    margin-bottom: 30px;
-    font-size: clamp(1.5rem, 5vw, 2rem);
-    text-align: center;
-    color: #ff0000;
-}
-
-.modal-box form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.modal-box input,
-.modal-box textarea {
-    padding: 15px;
-    border: 2px solid rgba(139, 0, 0, 0.3);
-    border-radius: 10px;
-    background: rgba(20, 20, 20, 0.8);
-    color: #fff;
-    font-size: 16px;
-    transition: all 0.3s;
-}
-
-.modal-box input:focus,
-.modal-box textarea:focus {
-    outline: none;
-    border-color: #8b0000;
-    background: rgba(20, 20, 20, 1);
-}
-
-.modal-box textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-.modal-box button[type="submit"] {
-    background: linear-gradient(135deg, #8b0000, #ff0000);
-    border: none;
-    padding: 15px;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s;
-    margin-top: 10px;
-}
-
-.modal-box button[type="submit"]:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(139, 0, 0, 0.6);
-}
-
-/* ========== RESPONSIVO ========== */
-@media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
-
-    .header {
-        padding: 40px 15px;
-        margin-bottom: 20px;
-    }
-
-    .tabs {
-        gap: 5px;
-        padding: 8px;
-    }
-
-    .tabs button {
-        padding: 12px 15px;
-        font-size: 14px;
-        min-width: 100px;
-    }
-
-    .grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
-    }
-
-    .card {
-        height: 250px;
-    }
-
-    .portfolio {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 15px;
-    }
-
-    .sobre-intro {
-        padding: 30px 20px;
-    }
-
-    .sobre-divider {
-        margin: 35px 0;
-    }
-
-    .sobre-divider::before,
-    .sobre-divider::after {
-        width: 40%;
-    }
-
-    .sobre-divider span {
-        padding: 8px 20px;
-        font-size: 1.5rem;
-    }
-
-    .sobre-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .sobre-card {
-        padding: 25px 20px;
-    }
-
-    .sobre-cta {
-        padding: 40px 25px;
-    }
-
-    .cta-button {
-        padding: 16px 40px;
-        font-size: 16px;
-    }
-
-    .modal-box {
-        padding: 30px 20px;
-        margin: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .badge {
-        font-size: 10px;
-        padding: 6px 15px;
-    }
-
-    .buttons button {
-        padding: 15px 35px;
-        font-size: 15px;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .portfolio {
-        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-        gap: 10px;
-    }
-
-    .card span {
-        font-size: 20px;
-        bottom: 15px;
-        left: 15px;
-    }
-
-    .sobre-intro {
-        padding: 25px 15px;
-    }
-
-    .sobre-divider {
-        margin: 30px 0;
-    }
-
-    .sobre-divider::before,
-    .sobre-divider::after {
-        width: 35%;
-    }
-
-    .sobre-divider span {
-        padding: 6px 15px;
-        font-size: 1.3rem;
-    }
-
-    .sobre-card {
-        padding: 20px 15px;
-    }
-
-    .sobre-icon {
-        font-size: 2.8rem;
-    }
-
-    .sobre-cta {
-        padding: 35px 20px;
-    }
-
-    .cta-button {
-        padding: 14px 30px;
-        font-size: 15px;
-    }
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Cinzel', serif;
-    background: #0a0a0a;
-    color: #fff;
-    overflow-x: hidden;
-}
-
-/* ========== FUNDO GLOBAL ANIMADO ========== */
-.global-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: linear-gradient(135deg, #000, #0d0d0d, #1a1a1a);
-    overflow: hidden;
-}
-
-/* Camada de fotos suave */
-.global-bg::before {
-    content: '';
-    position: absolute;
-    width: 400%;
-    height: 100%;
-    background-image: 
-        url('img/tattoo1.jpg'),
-        url('img/tattoo2.jpg'),
-        url('img/tattoo3.jpg'),
-        url('img/tattoo4.jpg'),
-        url('img/tattoo5.jpg'),
-        url('img/tattoo6.jpg'),
-        url('img/tattoo7.jpg'),
-        url('img/tattoo8.jpg'),
-        url('img/tattoo9.jpg'),
-        url('img/tattoo10.jpg'),
-        url('img/tattoo11.jpg'),
-        url('img/tattoo12.jpg');
-    background-size: 200px 200px;
-    background-repeat: repeat;
-    opacity: 0.06;
-    animation: slideBackgroundRight 180s linear infinite;
-    filter: blur(3px) grayscale(30%);
-}
-
-/* Segunda camada mais sutil */
-.global-bg::after {
-    content: '';
-    position: absolute;
-    width: 400%;
-    height: 100%;
-    background-image: 
-        url('img/tattoo13.jpg'),
-        url('img/tattoo14.jpg'),
-        url('img/tattoo15.jpg'),
-        url('img/tattoo16.jpg'),
-        url('img/tattoo17.jpg'),
-        url('img/tattoo18.jpg');
-    background-size: 220px 220px;
-    background-repeat: repeat;
-    opacity: 0.04;
-    animation: slideBackgroundRight 240s linear infinite;
-    filter: blur(4px) grayscale(40%);
-}
-
-@keyframes slideBackgroundRight {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(25%);
-    }
-}
-
-/* ========== CONTAINER ========== */
-.container {
     max-width: 100%;
     margin: 0 auto;
     padding: 0;
@@ -1282,56 +413,176 @@ body {
 .sobre-container {
     max-width: 1100px;
     margin: 0 auto;
+    position: relative;
+}
+
+/* Fundo animado exclusivo da seção Sobre */
+#sobre {
+    position: relative;
+    overflow: hidden;
+}
+
+#sobre::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400%;
+    height: 100%;
+    background-image: 
+        url('img/tattoo1.jpg'),
+        url('img/tattoo3.jpg'),
+        url('img/tattoo5.jpg'),
+        url('img/tattoo7.jpg'),
+        url('img/tattoo9.jpg'),
+        url('img/tattoo11.jpg'),
+        url('img/tattoo13.jpg'),
+        url('img/tattoo15.jpg'),
+        url('img/tattoo17.jpg');
+    background-size: 250px 250px;
+    background-repeat: repeat;
+    opacity: 0.08;
+    animation: sobreBgSlide1 150s linear infinite;
+    z-index: 0;
+}
+
+#sobre::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400%;
+    height: 100%;
+    background-image: 
+        url('img/tattoo2.jpg'),
+        url('img/tattoo4.jpg'),
+        url('img/tattoo6.jpg'),
+        url('img/tattoo8.jpg'),
+        url('img/tattoo10.jpg'),
+        url('img/tattoo12.jpg'),
+        url('img/tattoo14.jpg'),
+        url('img/tattoo16.jpg'),
+        url('img/tattoo18.jpg');
+    background-size: 220px 220px;
+    background-repeat: repeat;
+    opacity: 0.05;
+    animation: sobreBgSlide2 200s linear infinite reverse;
+    z-index: 0;
+}
+
+@keyframes sobreBgSlide1 {
+    0% { transform: translateX(0) translateY(0); }
+    100% { transform: translateX(25%) translateY(-10%); }
+}
+
+@keyframes sobreBgSlide2 {
+    0% { transform: translateX(0) translateY(0); }
+    100% { transform: translateX(-25%) translateY(10%); }
+}
+
+#sobre > * {
+    position: relative;
+    z-index: 1;
 }
 
 .sobre-intro {
-    background: linear-gradient(135deg, rgba(139, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
-    padding: 50px;
-    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.15), rgba(0, 0, 0, 0.85));
+    padding: 60px 50px;
+    border-radius: 25px;
     text-align: center;
-    border: 2px solid rgba(139, 0, 0, 0.3);
-    backdrop-filter: blur(15px);
-    margin-bottom: 40px;
+    border: 2px solid rgba(139, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    margin-bottom: 50px;
     position: relative;
     overflow: hidden;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .sobre-intro::before {
     content: '';
     position: absolute;
     top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.1), transparent);
+    animation: shine 4s ease-in-out infinite;
+}
+
+@keyframes shine {
+    0%, 100% { left: -100%; }
+    50% { left: 100%; }
+}
+
+.sobre-intro::after {
+    content: '';
+    position: absolute;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
+    height: 5px;
     background: linear-gradient(90deg, transparent, #8b0000, #ff0000, #8b0000, transparent);
+    animation: borderGlow 3s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
 }
 
 .sobre-intro h2 {
-    font-size: clamp(2rem, 5vw, 2.8rem);
-    background: linear-gradient(135deg, #ff0000, #ff6666);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    background: linear-gradient(135deg, #ff0000, #ff6666, #ff0000);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 25px;
-    letter-spacing: 3px;
+    margin-bottom: 30px;
+    letter-spacing: 4px;
+    font-weight: 900;
     text-transform: uppercase;
-    font-weight: 700;
+    animation: textPulse 3s ease-in-out infinite;
+}
+
+@keyframes textPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
 }
 
 .sobre-intro p {
-    font-size: clamp(1.1rem, 3vw, 1.4rem);
-    line-height: 2;
-    opacity: 0.95;
-    max-width: 800px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.15rem, 3vw, 1.5rem);
+    line-height: 2.2;
+    opacity: 0.98;
+    max-width: 850px;
     margin: 0 auto;
-    color: #e0e0e0;
+    color: #f0f0f0;
+    font-weight: 400;
+    letter-spacing: 0.5px;
 }
 
-/* Divisor decorativo */
+/* Divisor decorativo animado */
 .sobre-divider {
     text-align: center;
-    margin: 50px 0;
+    margin: 60px 0;
     position: relative;
+    animation: dividerFade 1.5s ease-out;
+}
+
+@keyframes dividerFade {
+    from { opacity: 0; transform: scaleX(0); }
+    to { opacity: 1; transform: scaleX(1); }
 }
 
 .sobre-divider::before,
@@ -1340,8 +591,14 @@ body {
     position: absolute;
     top: 50%;
     width: 45%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.5), transparent);
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.6), transparent);
+    animation: lineExpand 2s ease-in-out infinite;
+}
+
+@keyframes lineExpand {
+    0%, 100% { transform: scaleX(0.9); }
+    50% { transform: scaleX(1); }
 }
 
 .sobre-divider::before {
@@ -1354,30 +611,49 @@ body {
 
 .sobre-divider span {
     display: inline-block;
-    background: rgba(20, 20, 20, 0.9);
-    padding: 10px 30px;
-    border-radius: 30px;
-    border: 2px solid rgba(139, 0, 0, 0.4);
-    font-size: 2rem;
+    background: rgba(20, 20, 20, 0.95);
+    padding: 15px 35px;
+    border-radius: 50px;
+    border: 3px solid rgba(139, 0, 0, 0.5);
+    font-size: 2.5rem;
     position: relative;
+    animation: iconSpin 4s ease-in-out infinite;
+    box-shadow: 0 0 30px rgba(139, 0, 0, 0.4);
+}
+
+@keyframes iconSpin {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-10deg) scale(1.1); }
+    75% { transform: rotate(10deg) scale(1.1); }
 }
 
 .sobre-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-bottom: 50px;
+    gap: 30px;
+    margin-bottom: 60px;
 }
 
 .sobre-card {
-    background: linear-gradient(135deg, rgba(20, 20, 20, 0.9), rgba(10, 10, 10, 0.95));
-    padding: 35px;
-    border-radius: 20px;
-    border: 2px solid rgba(139, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.95), rgba(10, 10, 10, 0.98));
+    padding: 40px;
+    border-radius: 25px;
+    border: 2px solid rgba(139, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
+    animation: cardFloat 3s ease-in-out infinite;
+}
+
+.sobre-card:nth-child(1) { animation-delay: 0s; }
+.sobre-card:nth-child(2) { animation-delay: 0.3s; }
+.sobre-card:nth-child(3) { animation-delay: 0.6s; }
+.sobre-card:nth-child(4) { animation-delay: 0.9s; }
+
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 .sobre-card::before {
@@ -1386,47 +662,70 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 3px;
+    height: 4px;
     background: linear-gradient(90deg, #8b0000, #ff0000, #8b0000);
     transform: scaleX(0);
-    transition: transform 0.4s;
+    transition: transform 0.5s;
+}
+
+.sobre-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.05), transparent);
+    transition: left 0.8s;
 }
 
 .sobre-card:hover::before {
     transform: scaleX(1);
 }
 
+.sobre-card:hover::after {
+    left: 100%;
+}
+
 .sobre-card:hover {
-    border-color: rgba(139, 0, 0, 0.6);
-    transform: translateY(-8px);
+    border-color: rgba(139, 0, 0, 0.7);
+    transform: translateY(-12px) scale(1.02);
     box-shadow: 
-        0 15px 40px rgba(139, 0, 0, 0.4),
-        0 0 30px rgba(139, 0, 0, 0.1);
+        0 20px 50px rgba(139, 0, 0, 0.5),
+        0 0 40px rgba(139, 0, 0, 0.2);
 }
 
 .sobre-icon {
-    font-size: 3.5rem;
+    font-size: 4rem;
     text-align: center;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 10px rgba(139, 0, 0, 0.5));
-    transition: transform 0.3s;
+    margin-bottom: 25px;
+    filter: drop-shadow(0 0 15px rgba(139, 0, 0, 0.6));
+    transition: all 0.4s;
+    animation: iconBounce 2s ease-in-out infinite;
+}
+
+@keyframes iconBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 .sobre-card:hover .sobre-icon {
-    transform: scale(1.1) rotate(5deg);
+    transform: scale(1.2) rotate(10deg);
+    filter: drop-shadow(0 0 25px rgba(255, 0, 0, 0.8));
 }
 
 .sobre-card h3 {
-    font-size: 1.6rem;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.9rem;
     background: linear-gradient(135deg, #ff0000, #ff6666);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     text-align: center;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .sobre-card ul {
@@ -1434,14 +733,16 @@ body {
 }
 
 .sobre-card li {
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(139, 0, 0, 0.15);
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(139, 0, 0, 0.2);
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.05rem;
-    line-height: 1.6;
+    line-height: 1.7;
     position: relative;
-    padding-left: 30px;
-    color: #d0d0d0;
+    padding-left: 35px;
+    color: #e0e0e0;
     transition: all 0.3s;
+    font-weight: 400;
 }
 
 .sobre-card li:last-child {
@@ -1454,75 +755,125 @@ body {
     left: 0;
     color: #ff0000;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     transition: all 0.3s;
+}
+
+.sobre-card:hover li {
+    color: #ffffff;
+    padding-left: 40px;
 }
 
 .sobre-card:hover li::before {
     left: 5px;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+    animation: arrowPulse 1s ease-in-out infinite;
+}
+
+@keyframes arrowPulse {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
 }
 
 .sobre-cta {
-    background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(0, 0, 0, 0.9));
-    padding: 60px 40px;
-    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.25), rgba(0, 0, 0, 0.95));
+    padding: 70px 50px;
+    border-radius: 25px;
     text-align: center;
-    border: 2px solid rgba(139, 0, 0, 0.4);
+    border: 3px solid rgba(139, 0, 0, 0.5);
     position: relative;
     overflow: hidden;
+    animation: fadeInUp 1.5s ease-out;
 }
 
 .sobre-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.1) 0%, transparent 70%);
+    animation: ctaRotate 20s linear infinite;
+}
+
+@keyframes ctaRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.sobre-cta::after {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.1), transparent);
-    transition: left 1s;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.15), transparent);
+    animation: ctaShine 3s ease-in-out infinite;
 }
 
-.sobre-cta:hover::before {
-    left: 100%;
+@keyframes ctaShine {
+    0%, 100% { left: -100%; }
+    50% { left: 100%; }
 }
 
 .sobre-cta h3 {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    background: linear-gradient(135deg, #ff0000, #ff6666);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    background: linear-gradient(135deg, #ff0000, #ff6666, #ff0000);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: 3px;
+    font-weight: 900;
+    position: relative;
+    z-index: 1;
+    animation: textGlow 2s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+    0%, 100% { filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5)); }
+    50% { filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.8)); }
 }
 
 .sobre-cta p {
-    font-size: clamp(1.1rem, 3vw, 1.3rem);
-    margin-bottom: 30px;
-    color: #d0d0d0;
-    line-height: 1.8;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.15rem, 3vw, 1.4rem);
+    margin-bottom: 35px;
+    color: #e0e0e0;
+    line-height: 2;
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
 }
 
 .cta-button {
     background: linear-gradient(135deg, #8b0000, #c90000);
-    border: 2px solid rgba(255, 0, 0, 0.3);
-    padding: 20px 55px;
+    border: 3px solid rgba(255, 0, 0, 0.4);
+    padding: 22px 60px;
     color: white;
-    font-size: 19px;
-    font-weight: bold;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 22px;
+    font-weight: 400;
     border-radius: 50px;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 
-        0 10px 30px rgba(139, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    letter-spacing: 2px;
+        0 10px 35px rgba(139, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    letter-spacing: 3px;
     text-transform: uppercase;
     position: relative;
     overflow: hidden;
+    z-index: 1;
+    animation: buttonPulse 2s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+    0%, 100% { box-shadow: 0 10px 35px rgba(139, 0, 0, 0.6); }
+    50% { box-shadow: 0 15px 50px rgba(139, 0, 0, 0.9); }
 }
 
 .cta-button::before {
@@ -1533,27 +884,27 @@ body {
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
+    transition: width 0.8s, height 0.8s;
 }
 
 .cta-button:hover::before {
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
 }
 
 .cta-button:hover {
-    transform: translateY(-5px) scale(1.05);
+    transform: translateY(-8px) scale(1.08);
     box-shadow: 
-        0 15px 50px rgba(139, 0, 0, 0.7),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 0, 0, 0.6);
+        0 20px 60px rgba(139, 0, 0, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 0, 0, 0.8);
     background: linear-gradient(135deg, #a00000, #ff0000);
 }
 
 .cta-button:active {
-    transform: translateY(-2px) scale(1.02);
+    transform: translateY(-4px) scale(1.05);
 }
 
 /* ========== MODAL ========== */
@@ -1716,39 +1067,43 @@ body {
     }
 
     .sobre-intro {
-        padding: 30px 20px;
+        padding: 35px 25px;
     }
 
     .sobre-divider {
-        margin: 35px 0;
+        margin: 40px 0;
     }
 
     .sobre-divider::before,
     .sobre-divider::after {
-        width: 40%;
+        width: 38%;
     }
 
     .sobre-divider span {
-        padding: 8px 20px;
-        font-size: 1.5rem;
+        padding: 10px 25px;
+        font-size: 2rem;
     }
 
     .sobre-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 25px;
     }
 
     .sobre-card {
-        padding: 25px 20px;
+        padding: 30px 25px;
+    }
+
+    .sobre-icon {
+        font-size: 3.5rem;
     }
 
     .sobre-cta {
-        padding: 40px 25px;
+        padding: 50px 30px;
     }
 
     .cta-button {
-        padding: 16px 40px;
-        font-size: 16px;
+        padding: 18px 45px;
+        font-size: 18px;
     }
 
     .modal-box {
@@ -1792,37 +1147,43 @@ body {
     }
 
     .sobre-intro {
-        padding: 25px 15px;
+        padding: 30px 20px;
     }
 
     .sobre-divider {
-        margin: 30px 0;
+        margin: 35px 0;
     }
 
     .sobre-divider::before,
     .sobre-divider::after {
-        width: 35%;
+        width: 32%;
     }
 
     .sobre-divider span {
-        padding: 6px 15px;
-        font-size: 1.3rem;
+        padding: 8px 20px;
+        font-size: 1.8rem;
     }
 
     .sobre-card {
-        padding: 20px 15px;
+        padding: 25px 20px;
     }
 
     .sobre-icon {
-        font-size: 2.8rem;
+        font-size: 3rem;
+    }
+
+    .sobre-card li {
+        font-size: 0.95rem;
+        padding-left: 30px;
     }
 
     .sobre-cta {
-        padding: 35px 20px;
+        padding: 40px 25px;
     }
 
     .cta-button {
-        padding: 14px 30px;
-        font-size: 15px;
+        padding: 16px 35px;
+        font-size: 17px;
     }
 }
+
