@@ -23,10 +23,11 @@ body {
     overflow: hidden;
 }
 
+/* Primeira camada de fotos */
 .global-bg::before {
     content: '';
     position: absolute;
-    width: 200%;
+    width: 300%;
     height: 100%;
     background-image: 
         url('img/tattoo1.jpg'),
@@ -34,20 +35,63 @@ body {
         url('img/tattoo3.jpg'),
         url('img/tattoo4.jpg'),
         url('img/tattoo5.jpg'),
-        url('img/tattoo6.jpg');
-    background-size: 300px 300px;
+        url('img/tattoo6.jpg'),
+        url('img/tattoo7.jpg'),
+        url('img/tattoo8.jpg'),
+        url('img/tattoo9.jpg'),
+        url('img/tattoo10.jpg'),
+        url('img/tattoo11.jpg'),
+        url('img/tattoo12.jpg'),
+        url('img/tattoo13.jpg'),
+        url('img/tattoo14.jpg'),
+        url('img/tattoo15.jpg'),
+        url('img/tattoo16.jpg'),
+        url('img/tattoo17.jpg'),
+        url('img/tattoo18.jpg');
+    background-size: 180px 180px;
     background-repeat: repeat;
-    opacity: 0.08;
-    animation: slideBackground 60s linear infinite;
-    filter: blur(2px);
+    opacity: 0.12;
+    animation: slideBackgroundRight 120s linear infinite;
 }
 
-@keyframes slideBackground {
+/* Segunda camada de fotos (mais rápida) */
+.global-bg::after {
+    content: '';
+    position: absolute;
+    width: 300%;
+    height: 100%;
+    background-image: 
+        url('img/tattoo9.jpg'),
+        url('img/tattoo10.jpg'),
+        url('img/tattoo11.jpg'),
+        url('img/tattoo12.jpg'),
+        url('img/tattoo13.jpg'),
+        url('img/tattoo14.jpg'),
+        url('img/tattoo15.jpg'),
+        url('img/tattoo16.jpg'),
+        url('img/tattoo17.jpg'),
+        url('img/tattoo18.jpg'),
+        url('img/tattoo1.jpg'),
+        url('img/tattoo2.jpg'),
+        url('img/tattoo3.jpg'),
+        url('img/tattoo4.jpg'),
+        url('img/tattoo5.jpg'),
+        url('img/tattoo6.jpg'),
+        url('img/tattoo7.jpg'),
+        url('img/tattoo8.jpg');
+    background-size: 150px 150px;
+    background-repeat: repeat;
+    opacity: 0.08;
+    animation: slideBackgroundRight 80s linear infinite;
+    filter: blur(1px);
+}
+
+@keyframes slideBackgroundRight {
     0% {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%);
+        transform: translateX(33.333%);
     }
 }
 
