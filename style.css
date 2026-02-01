@@ -5,168 +5,305 @@
 }
 
 body {
-    background: #000;
-    color: #fff;
     font-family: 'Cinzel', serif;
+    background: #0a0a0a;
+    color: #fff;
     overflow-x: hidden;
 }
 
-/* FUNDO GLOBAL */
+/* ========== FUNDO GLOBAL ANIMADO ========== */
 .global-bg {
     position: fixed;
-    inset: 0;
-    background: url('img/tattoo1.jpg') center/cover no-repeat;
-    opacity: 0.08;
-    filter: grayscale(100%);
-    z-index: -2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, #000, #1a1a1a);
+    overflow: hidden;
 }
 
-/* CONTAINER */
+.global-bg::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background-image: 
+        url('img/tattoo1.jpg'),
+        url('img/tattoo2.jpg'),
+        url('img/tattoo3.jpg'),
+        url('img/tattoo4.jpg'),
+        url('img/tattoo5.jpg'),
+        url('img/tattoo6.jpg');
+    background-size: 300px 300px;
+    background-repeat: repeat;
+    opacity: 0.08;
+    animation: slideBackground 60s linear infinite;
+    filter: blur(2px);
+}
+
+@keyframes slideBackground {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ========== CONTAINER ========== */
 .container {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
     padding: 20px;
+    position: relative;
 }
 
-/* HEADER */
+/* ========== HEADER ========== */
 .header {
     position: relative;
-    border-radius: 25px;
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 30px;
+    border-radius: 20px;
     overflow: hidden;
-    margin-bottom: 40px;
 }
 
 .header-bg {
     position: absolute;
-    inset: 0;
-    background: url('img/tattoo6.jpg') center/cover no-repeat;
-    filter: grayscale(100%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(0, 0, 0, 0.8)),
+                url('img/tattoo1.jpg') center/cover;
+    z-index: -1;
+    animation: headerSlide 20s ease-in-out infinite;
 }
 
-.header-bg::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.75);
+@keyframes headerSlide {
+    0%, 100% { background-image: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url('img/tattoo1.jpg'); }
+    25% { background-image: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url('img/tattoo5.jpg'); }
+    50% { background-image: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url('img/tattoo10.jpg'); }
+    75% { background-image: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url('img/tattoo15.jpg'); }
 }
 
 .header-content {
     position: relative;
-    text-align: center;
-    padding: 80px 20px;
+    z-index: 1;
 }
 
 .badge {
-    background: #111;
-    padding: 10px 24px;
-    border-radius: 20px;
-    margin-bottom: 20px;
     display: inline-block;
+    background: rgba(139, 0, 0, 0.9);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    font-weight: 600;
 }
 
-h1 {
+.header h1 {
     font-family: 'Anton', sans-serif;
-    font-size: clamp(42px, 8vw, 72px);
-    letter-spacing: 4px;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    letter-spacing: 8px;
+    text-shadow: 0 0 30px rgba(139, 0, 0, 0.8);
+    margin: 20px 0;
+    line-height: 1.1;
 }
 
 .subtitle {
-    margin: 20px 0;
-    opacity: 0.8;
-}
-
-.buttons button {
-    background: orange;
-    border: none;
-    padding: 14px 32px;
-    border-radius: 30px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* TABS */
-.tabs {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    opacity: 0.9;
     margin-bottom: 30px;
+    letter-spacing: 3px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
-.tabs button {
-    background: #111;
-    color: #fff;
+.buttons button {
+    background: linear-gradient(135deg, #8b0000, #ff0000);
     border: none;
-    padding: 12px 25px;
-    border-radius: 20px;
+    padding: 15px 40px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
     cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(139, 0, 0, 0.4);
+    letter-spacing: 1px;
 }
 
-.tabs .active {
-    background: #fff;
-    color: #000;
+.buttons button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(139, 0, 0, 0.6);
 }
 
-.tab { display: none; }
-.tab.active { display: block; }
+/* ========== TABS ========== */
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    background: rgba(20, 20, 20, 0.8);
+    padding: 10px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    overflow-x: auto;
+}
 
-/* ESTILOS */
+.tabs button {
+    flex: 1;
+    background: transparent;
+    border: 2px solid rgba(139, 0, 0, 0.3);
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 120px;
+    white-space: nowrap;
+}
+
+.tabs button:hover {
+    border-color: #8b0000;
+    background: rgba(139, 0, 0, 0.1);
+}
+
+.tabs button.active {
+    background: linear-gradient(135deg, #8b0000, #ff0000);
+    border-color: #ff0000;
+}
+
+/* ========== SECTIONS ========== */
+.tab {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.tab.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== GRID ESTILOS ========== */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
 .card {
-    height: 220px;
+    position: relative;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
     background-size: cover;
     background-position: center;
-    border-radius: 20px;
-    display: flex;
-    align-items: flex-end;
-    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.3s;
 }
 
-.card span {
-    background: rgba(0,0,0,0.7);
-    padding: 6px 12px;
-    border-radius: 12px;
-}
-
-/* PORTFÓLIO */
-.portfolio {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
-    gap: 15px;
-}
-
-.portfolio img {
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    border-radius: 15px;
-    transition: transform .3s;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    transition: all 0.3s;
 }
 
-.portfolio img:hover {
+.card:hover {
     transform: scale(1.05);
 }
 
-/* SOBRE */
-.sobre {
-    text-align: center;
-    max-width: 700px;
-    margin: auto;
-    line-height: 1.6;
+.card:hover::before {
+    background: linear-gradient(to top, rgba(139,0,0,0.8), transparent);
 }
 
-/* MODAL */
+.card span {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 1;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+}
+
+/* ========== PORTFÓLIO ========== */
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.portfolio .item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    aspect-ratio: 1;
+    background: rgba(20, 20, 20, 0.5);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.portfolio .item:hover {
+    transform: scale(1.05);
+}
+
+.portfolio .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: all 0.3s;
+}
+
+.portfolio .item:hover img {
+    filter: brightness(1.2);
+}
+
+/* ========== SOBRE ========== */
+.sobre {
+    background: rgba(20, 20, 20, 0.8);
+    padding: 40px;
+    border-radius: 15px;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    line-height: 1.8;
+    text-align: center;
+    border-left: 5px solid #8b0000;
+    backdrop-filter: blur(10px);
+}
+
+/* ========== MODAL ========== */
 .modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.8);
     display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    padding: 20px;
+    backdrop-filter: blur(10px);
 }
 
 .modal.active {
@@ -174,40 +311,167 @@ h1 {
 }
 
 .modal-box {
-    background: #111;
-    padding: 30px;
+    background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+    padding: 40px;
     border-radius: 20px;
-    width: 90%;
-    max-width: 400px;
-    animation: zoom .3s ease;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    border: 2px solid rgba(139, 0, 0, 0.3);
+    box-shadow: 0 10px 50px rgba(139, 0, 0, 0.5);
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
-@keyframes zoom {
-    from { transform: scale(.9); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+.modal-box .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.modal-box .close::before {
+    content: '×';
+}
+
+.modal-box .close:hover {
+    color: #ff0000;
+    transform: rotate(90deg);
+}
+
+.modal-box h2 {
+    margin-bottom: 30px;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    text-align: center;
+    color: #ff0000;
+}
+
+.modal-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .modal-box input,
-.modal-box textarea,
-.modal-box button {
-    width: 100%;
-    margin-top: 10px;
-    padding: 12px;
+.modal-box textarea {
+    padding: 15px;
+    border: 2px solid rgba(139, 0, 0, 0.3);
     border-radius: 10px;
-    border: none;
+    background: rgba(20, 20, 20, 0.8);
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s;
 }
 
-.modal-box button {
-    background: orange;
+.modal-box input:focus,
+.modal-box textarea:focus {
+    outline: none;
+    border-color: #8b0000;
+    background: rgba(20, 20, 20, 1);
+}
+
+.modal-box textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.modal-box button[type="submit"] {
+    background: linear-gradient(135deg, #8b0000, #ff0000);
+    border: none;
+    padding: 15px;
+    color: white;
+    font-size: 18px;
     font-weight: bold;
+    border-radius: 10px;
     cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
 }
 
-.close {
-    background: none;
-    border: none;
-    color: orange;
-    font-size: 28px;
-    float: right;
-    cursor: pointer;
+.modal-box button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(139, 0, 0, 0.6);
+}
+
+/* ========== RESPONSIVO ========== */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .header {
+        padding: 40px 15px;
+        margin-bottom: 20px;
+    }
+
+    .tabs {
+        gap: 5px;
+        padding: 8px;
+    }
+
+    .tabs button {
+        padding: 12px 15px;
+        font-size: 14px;
+        min-width: 100px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .card {
+        height: 250px;
+    }
+
+    .portfolio {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+
+    .sobre {
+        padding: 25px;
+    }
+
+    .modal-box {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .badge {
+        font-size: 10px;
+        padding: 6px 15px;
+    }
+
+    .buttons button {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 10px;
+    }
+
+    .card span {
+        font-size: 20px;
+        bottom: 15px;
+        left: 15px;
+    }
 }
